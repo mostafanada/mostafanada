@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<int>v;
+vector<string>vs;
+
+void binartseq(int n,string s="")
+{
+    if(!n)
+    {
+        vs.push_back(s);
+        return;
+    }
+    binartseq(n-1,s+'0');
+    binartseq(n-1,s+'1');
+}
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int n;cin>>n;
+        binartseq(n);
+        sort(vs.begin(),vs.end());
+        for(auto it:vs)
+            if(it.size()==n)
+                cout<<it<<'\n';
+        //vs.clear();
+    }
+    return 0;
+}
