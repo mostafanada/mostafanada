@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x,a,b,c,d=0,f=0,g=0,h=0,sum=0;
+    cin>>x;
+    for(int i=0;i<x;i++)
+    {
+        sum=0,d=0,f=0,g=0;
+        cin>>a>>b>>c;
+        if (a==1)
+            d++;
+        if (b==1)
+            f++;
+        if (c==1)
+            g++;
+
+        sum=d+f+g;
+        if(sum>=2)
+        {
+            h++;
+        }
+    }
+    cout<<h;
+    return 0;
+}
