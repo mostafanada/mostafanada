@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+vector<string>vs;
+void bi(int i,string s="")
+{
+    if(!i)
+    {
+        vs.push_back(s);
+        return;
+    }
+    bi(i-1,s+'0');
+    bi(i-1,s+'1');
+
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        bi(2*n);
+
+        for(auto it:vs)
+        {
+            int sum=0,sum1=0;
+            //cout<<it<<"\n";
+            for(int i=0; i<n; i++)
+            {
+                sum+=it[i]-48;
+                //cout<<it[i]<<" "<<it[i+n]<<"\n";
+                sum1+=it[i+n]-48;
+            }
+            if(sum==sum1&&it.size()==2*n)
+               cout<<it<<"\n";
+        }
+    }
+    return 0;
+}
