@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int n,m,ans;
+int lev[1000006];
+void bfs(int a)
+{
+    memset(lev,-1,sizeof(lev));
+    queue<int>q;
+    q.push(a);
+    lev[a]=0;
+    while(!q.empty())
+    {
+        int node=q.front();
+        int cost=lev[node];
+        q.pop();
+        if(node==m)return ;
+        if(node>0&&lev[node-1]==-1)
+            q.push(node-1),lev[node-1]=cost+1;
+        if(node<=10000&&lev[node*2]==-1)
+            q.push(node*2),lev[node*2]=cost+1;
+    }
+}
+int main()
+{
+    cin>>n>>m;
+    bfs(n);
+    cout<<lev[m];
+    return 0;
+}
